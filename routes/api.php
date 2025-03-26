@@ -47,5 +47,11 @@ Route::group(['middleware' => ['auth:api']], function() {
     Route::post('/room', [RoomController::class, 'store']);
     Route::get('/room', [RoomController::class, 'index']);
 
-    
+    //seats
+    Route::post('/seats', [SeatController::class, 'store']);
+
+    //reservation
+    Route::post('/reservations', [ReservationController::class, 'store']);
+    Route::put('/reservations/{id}', [ReservationController::class, 'update']);
+    Route::delete('/reservations/{id}', [ReservationController::class, 'destroy']);
 });
