@@ -60,7 +60,7 @@ Route::group(['middleware' => ['auth:api']], function() {
     Route::post('/paypal/capture', [ReservationController::class, 'capture']);
 
     //Dashboard
-    // Route::get('/dashboard/overview', [DashboardController::class, 'getOverview']);
-    // Route::get('/dashboard/occupation-rate', [DashboardController::class, 'getOccupationRate']);
-    // Route::get('/dashboard/popular-films', [DashboardController::class, 'getPopularFilms']);
+    Route::get('/dashboard/overview', [DashboardController::class, 'getOverview']);
+    Route::get('/dashboard/occupation-rate', [DashboardController::class, 'getOccupationRate']);
+    Route::get('/dashboard/popular-films', [DashboardController::class, 'getPopularFilms']);
 });
