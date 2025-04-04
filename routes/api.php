@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SeatController;
-
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -54,4 +55,12 @@ Route::group(['middleware' => ['auth:api']], function() {
     Route::post('/reservations', [ReservationController::class, 'store']);
     Route::put('/reservations/{id}', [ReservationController::class, 'update']);
     Route::delete('/reservations/{id}', [ReservationController::class, 'destroy']);
+
+    //payment
+    Route::post('/paypal/capture', [ReservationController::class, 'capture']);
+
+    //Dashboard
+    // Route::get('/dashboard/overview', [DashboardController::class, 'getOverview']);
+    // Route::get('/dashboard/occupation-rate', [DashboardController::class, 'getOccupationRate']);
+    // Route::get('/dashboard/popular-films', [DashboardController::class, 'getPopularFilms']);
 });
